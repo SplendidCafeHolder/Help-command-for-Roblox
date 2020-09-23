@@ -1,0 +1,14 @@
+Put this in Server Script Service.
+local GroupId = 
+local MinimumRankToUseCommand = 
+
+game.Players.PlayerAdded:Connect(function(player)
+	player.Chatted:Connect(function(msg)
+	        if msg == "!help" and player:GetRankInGroup(GroupId) >= MinimumRankToUseCommand then
+			local PlayerName = player.Name
+			game.ReplicatedStorage.Call:FireAllClients(PlayerName)
+		
+end
+end)
+end)
+
