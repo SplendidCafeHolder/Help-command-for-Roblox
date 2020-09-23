@@ -1,0 +1,18 @@
+DestroyScript:
+local GroupId = 
+local MinimunRankToSee = 
+local Player = game.Players.LocalPlayer
+
+if Player:GetRankInGroup(GroupId) < MinimunRankToSee then
+	script.Parent:Destroy()
+end
+
+HelpTextScript:
+game.ReplicatedStorage.Call.OnClientEvent:Connect(function(PlayerName)
+	script.Parent.Frame.Visible = true
+	script.Parent.Frame.CallText.Text = PlayerName.. " called a MR/HR+"
+	wait(10)
+	script.Parent.Frame.Visible = false
+end)
+
+
